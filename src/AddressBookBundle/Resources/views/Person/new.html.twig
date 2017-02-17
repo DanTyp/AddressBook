@@ -1,0 +1,50 @@
+{% extends "::base.html.twig" %}
+{% form_theme formPerson 'bootstrap_3_layout.html.twig' %}
+
+{% block title %}Modification page{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h2><a href="{{path("addressbook_person_showindex")}}">Back to the main page</a></h2>
+        
+        
+        <h3>Modify personal data:</h3>
+        {{ form_start(formPerson) }}
+        {{ form_widget(formPerson) }}
+        {{ form_end(formPerson) }}
+        
+        
+
+        <br><br>
+
+        {# formPerson musi być zawsze, ponieważ metoda tworzenie nowego kontaktu korzysta z tego twiga, natomiast formularze dodawania
+        adresu, telefonu i maila będą widoczne tylko wówczas, kiedy wejdziemy na new.html.twig z akcji modyfikacji danych kontaktu#}
+        {% if formAddress is defined %}
+            <h3>Add new address:</h3>
+            {{ form_start(formAddress) }}
+            {{ form_widget(formAddress) }}
+            {{ form_end(formAddress) }}
+        {% endif %}
+
+        <br><br>
+
+        {% if formPhone is defined %}
+            <h3>Add new phone number:</h3>
+            {{ form_start(formPhone) }}
+            {{ form_widget(formPhone) }}
+            {{ form_end(formPhone) }}
+        {% endif %}
+        
+        <br><br>
+
+        {% if formEmail is defined %}
+            <h3>Add new email address:</h3>
+            {{ form_start(formEmail) }}
+            {{ form_widget(formEmail) }}
+            {{ form_end(formEmail) }}
+        {% endif %}
+
+    </div>
+
+
+{% endblock %}

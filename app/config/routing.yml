@@ -1,0 +1,6 @@
+address_book:
+    resource: "@AddressBookBundle/Controller/"
+    type:     annotation
+    prefix:   /
+
+

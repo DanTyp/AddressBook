@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project-private xmlns="http://www.netbeans.org/ns/project-private/1">
+    <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
+    <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
+        <group>
+            <file>file:/home/daniel/Workspace/AddressBook/src/AddressBookBundle/Controller/PersonController.php</file>
+            <file>file:/home/daniel/Workspace/AddressBook/src/AddressBookBundle/Resources/views/Person/show_person.html.twig</file>
+            <file>file:/home/daniel/Workspace/AddressBook/src/AddressBookBundle/Resources/views/Person/new.html.twig</file>
+            <file>file:/home/daniel/Workspace/AddressBook/src/AddressBookBundle/Entity/Person.php</file>
+            <file>file:/home/daniel/Workspace/AddressBook/src/AddressBookBundle/Resources/views/Person/show_index.html.twig</file>
+        </group>
+    </open-files>
+</project-private>

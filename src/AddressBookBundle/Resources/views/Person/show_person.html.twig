@@ -1,0 +1,115 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}Person page{% endblock %}
+
+{% block body %}
+    <div class="container">
+        <h1>Welcome to the {{person.name}}'s page</h1>
+
+
+
+        <div class="row">
+            <div class="col-md-12">
+                <h3> About person: </h3>
+                <table class="table">
+                    <tr>
+                        <td> Name: </td>
+                        <td> {{person.name}} </td>
+                    </tr>
+                    <tr>
+                        <td> Surname: </td>
+                        <td> {{person.surname}} </td>
+                    </tr>
+                    <tr>
+                        <td> Description: </td>
+                        <td> {{person.description}} </td>
+                    </tr>
+                </table>
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col-md-4">
+                <h3> Phones </h3>
+                {% if person.phones | length >0  %}
+                    <table class="table">
+                        <tr>
+                            <th> Phone: </th>
+                        </tr>
+                        {% for phone in person.phones %}
+
+                            <tr>
+                                <td> {{phone.number}} </td>
+                                <td>
+                                    <a href="{{path("addressbook_person_deletephone", {"id":phone.id})}}" class="btn btn-danger btn-xs">Remove</a>
+                                </td>
+                            </tr>
+
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p>There are no phone numbers</p>
+                {% endif %}
+            </div>
+
+
+
+            <div class="col-md-4">
+                <h3> Addresses </h3>
+                {% if person.addresses | length >0  %}
+                    <table class="table">
+                        <tr>
+                            <th>City</th>
+                            <th>Street</th>
+                        </tr>
+                        {% for address in person.addresses %}
+                            <tr>
+                                <td>{{address.city}}</td>
+                                <td>{{address.street}} {{address.houseNo}}/{{address.flatNo}}  </td>
+                                <td>
+                                    <a href="{{path("addressbook_person_deleteaddress", {"id":address.id})}}" class="btn btn-danger btn-xs">Remove</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p>There are no addresses</p>
+                {% endif %}
+            </div>
+            
+            <div class="col-md-4">
+                <h3> E-mails </h3>
+                {% if person.emails | length >0  %}
+                    <table class="table">
+                        <tr>
+                            <th>Email address</th>
+                        </tr>
+                        {% for email in person.emails %}
+                            <tr>
+                                <td>{{email.address}}</td>
+                                <td>
+                                    <a href="{{path("addressbook_person_deleteemail", {"id":email.id})}}" class="btn btn-danger btn-xs">Remove</a>
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    </table>
+                {% else %}
+                    <p>There are no emails</p>
+                {% endif %}
+            </div>            
+        </div>
+        <td>
+            <a href="{{path("addressbook_person_modifyperson", {"id":person.id})}}" class="btn btn-large btn-success">Modify person's data</a>
+        </td>
+
+        <td>
+            <a href="{{path("addressbook_person_deleteperson", {"id":person.id})}}" class="btn btn-large btn-success">Remove person from your AddressBook</a>
+        </td>
+        <h2><a href="{{path("addressbook_person_showindex")}}">Back to the main page</a></h2>
+    </div>
+
+
+
+
+{% endblock %}
